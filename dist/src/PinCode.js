@@ -340,7 +340,7 @@ class PinCode extends React.PureComponent {
                 this.props.passwordComponent
                     ? this.props.passwordComponent()
                     : this.renderCirclePassword(),
-                showError && React.createElement(react_native_1.Text, { style: { fontSize: 10, color: 'red' } }, this.props.errorMessage)),
+                showError && React.createElement(react_native_1.Text, { style: this.props.errorMessageStyle }, this.props.errorMessage)),
             React.createElement(react_native_easy_grid_1.Grid, { style: styles.grid },
                 React.createElement(react_native_easy_grid_1.Row, { style: [
                         styles.row,

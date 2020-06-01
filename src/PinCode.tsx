@@ -73,6 +73,7 @@ export interface IProps {
   validationRegex?: RegExp
   vibrationEnabled?: boolean
   errorMessage?: string
+  errorMessageStyle?: StyleProp<TextStyle>
   delayBetweenAttempts?: number;
 }
 
@@ -606,7 +607,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
             ? this.props.passwordComponent()
             : this.renderCirclePassword()}
           {
-            showError && <Text style={{fontSize: 10, color: 'red'}}>{ this.props.errorMessage }</Text>
+            showError && <Text style={this.props.errorMessageStyle}>{ this.props.errorMessage }</Text>
           }
         </View>
         <Grid style={styles.grid}>

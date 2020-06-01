@@ -84,6 +84,7 @@ export interface IProps {
   passcodeFallback?: boolean
   vibrationEnabled?: boolean
   errorMessage?: string
+  errorMessageStyle?: StyleProp<TextStyle>
   delayBetweenAttempts?: number
 }
 
@@ -301,6 +302,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
             this.props.titleConfirmFailed || 'Your entries did not match'
           }
           errorMessage={this.props.errorMessage}
+          errorMessageStyle={this.props.errorMessageStyle}
           vibrationEnabled={this.props.vibrationEnabled}
           delayBetweenAttempts={this.props.delayBetweenAttempts}
         />

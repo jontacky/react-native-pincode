@@ -77,6 +77,7 @@ export interface IProps {
     passcodeFallback?: boolean;
     vibrationEnabled?: boolean;
     errorMessage?: string;
+    errorMessageStyle?: StyleProp<TextStyle>;
     delayBetweenAttempts?: number;
 }
 export interface IState {

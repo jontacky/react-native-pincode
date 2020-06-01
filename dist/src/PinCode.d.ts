@@ -62,6 +62,7 @@ export interface IProps {
     validationRegex?: RegExp;
     vibrationEnabled?: boolean;
     errorMessage?: string;
+    errorMessageStyle?: StyleProp<TextStyle>;
     delayBetweenAttempts?: number;
 }
 export interface IState {

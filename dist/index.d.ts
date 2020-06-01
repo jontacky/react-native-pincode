@@ -104,6 +104,7 @@ export declare type IProps = {
     touchIDTitle?: string;
     validationRegex?: RegExp;
     errorMessage?: string;
+    errorMessageStyle: StyleProp<TextStyle>;
     passcodeFallback?: boolean;
     vibrationEnabled?: boolean;
     delayBetweenAttempts?: number;
