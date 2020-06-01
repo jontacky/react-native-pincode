@@ -1,24 +1,14 @@
-import delay from "./delay";
-import { colors } from "./design/colors";
-import { grid } from "./design/grid";
-
 import { easeLinear } from "d3-ease";
 import * as _ from "lodash";
 import * as React from "react";
 import Animate from "react-move/Animate";
-import {
-  Dimensions,
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableHighlight,
-  Vibration,
-  View,
-  ViewStyle
-} from "react-native";
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { Dimensions, StyleProp, StyleSheet, Text, TextStyle, TouchableHighlight, Vibration, View, ViewStyle } from "react-native";
+import { Col, Grid, Row } from "react-native-easy-grid";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import delay from "./delay";
+import { colors } from "./design/colors";
+import { grid } from "./design/grid";
+
 
 /**
  * Pin Code Component
@@ -82,6 +72,7 @@ export interface IProps {
   titleValidationFailed?: string
   validationRegex?: RegExp
   vibrationEnabled?: boolean
+  errorMessage?: string
   delayBetweenAttempts?: number;
 }
 
@@ -614,6 +605,9 @@ class PinCode extends React.PureComponent<IProps, IState> {
           {this.props.passwordComponent
             ? this.props.passwordComponent()
             : this.renderCirclePassword()}
+          {
+            showError && <Text style={{fontSize: 10, color: 'red'}}>{ this.props.errorMessage }</Text>
+          }
         </View>
         <Grid style={styles.grid}>
           <Row

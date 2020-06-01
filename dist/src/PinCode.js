@@ -1,8 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const delay_1 = require("./delay");
-const colors_1 = require("./design/colors");
-const grid_1 = require("./design/grid");
 const d3_ease_1 = require("d3-ease");
 const _ = require("lodash");
 const React = require("react");
@@ -10,6 +7,9 @@ const Animate_1 = require("react-move/Animate");
 const react_native_1 = require("react-native");
 const react_native_easy_grid_1 = require("react-native-easy-grid");
 const MaterialIcons_1 = require("react-native-vector-icons/MaterialIcons");
+const delay_1 = require("./delay");
+const colors_1 = require("./design/colors");
+const grid_1 = require("./design/grid");
 var PinStatus;
 (function (PinStatus) {
     PinStatus["choose"] = "choose";
@@ -336,9 +336,11 @@ class PinCode extends React.PureComponent {
                 this.props.subtitleComponent
                     ? this.props.subtitleComponent()
                     : this.renderSubtitle(colorSubtitle, opacityTitle, attemptFailed, showError)))),
-            React.createElement(react_native_1.View, { style: styles.flexCirclePassword }, this.props.passwordComponent
-                ? this.props.passwordComponent()
-                : this.renderCirclePassword()),
+            React.createElement(react_native_1.View, { style: styles.flexCirclePassword },
+                this.props.passwordComponent
+                    ? this.props.passwordComponent()
+                    : this.renderCirclePassword(),
+                showError && React.createElement(react_native_1.Text, { style: { fontSize: 10, color: 'red' } }, this.props.errorMessage)),
             React.createElement(react_native_easy_grid_1.Grid, { style: styles.grid },
                 React.createElement(react_native_easy_grid_1.Row, { style: [
                         styles.row,
