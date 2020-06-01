@@ -1,12 +1,12 @@
+import AsyncStorage from '@react-native-community/async-storage';
+import * as React from "react";
+import { StyleProp, StyleSheet, TextStyle, View, ViewStyle } from "react-native";
 import ApplicationLocked from "./src/ApplicationLocked";
 import { PinStatus } from "./src/PinCode";
 import PinCodeChoose from "./src/PinCodeChoose";
 import PinCodeEnter from "./src/PinCodeEnter";
-import { hasPinCode, deletePinCode, resetInternalStates, PinResultStatus } from "./src/utils";
+import { deletePinCode, hasPinCode, PinResultStatus, resetInternalStates } from "./src/utils";
 
-import AsyncStorage from '@react-native-community/async-storage'
-import * as React from "react";
-import { View, StyleSheet, StyleProp, ViewStyle, TextStyle } from "react-native";
 
 export type IProps = {
   bottomLeftComponent?: any
@@ -110,6 +110,7 @@ export type IProps = {
   touchIDSentence?: string
   touchIDTitle?: string
   validationRegex?: RegExp
+  errorMessage?: string
   passcodeFallback?: boolean
   vibrationEnabled?: boolean
   delayBetweenAttempts?: number;
@@ -323,6 +324,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
             touchIDSentence={this.props.touchIDSentence || "To unlock your application"}
             touchIDTitle={this.props.touchIDTitle || touchIDTitleDefault}
             vibrationEnabled={this.props.vibrationEnabled}
+            errorMessage={errorMessage}
             delayBetweenAttempts={this.props.delayBetweenAttempts}
           />}
         {(pinStatus === PinResultStatus.locked ||

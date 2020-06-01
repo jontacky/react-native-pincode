@@ -1,18 +1,12 @@
+import AsyncStorage from '@react-native-community/async-storage'
+import * as React from 'react'
+import { StyleProp, StyleSheet, TextStyle, View, ViewStyle } from 'react-native'
+import * as Keychain from 'react-native-keychain'
+import TouchID from 'react-native-touch-id'
 import delay from './delay'
 import PinCode, { PinStatus } from './PinCode'
 import { PinResultStatus } from './utils'
 
-import AsyncStorage from '@react-native-community/async-storage'
-import * as React from 'react'
-import {
-  StyleProp,
-  StyleSheet,
-  TextStyle,
-  View,
-  ViewStyle
-} from 'react-native'
-import * as Keychain from 'react-native-keychain'
-import TouchID from 'react-native-touch-id'
 
 /**
  * Pin Code Enter PIN Page
@@ -89,6 +83,7 @@ export interface IProps {
   touchIDTitle?: string
   passcodeFallback?: boolean
   vibrationEnabled?: boolean
+  errorMessage?: string
   delayBetweenAttempts?: number
 }
 
@@ -305,6 +300,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
           titleConfirmFailed={
             this.props.titleConfirmFailed || 'Your entries did not match'
           }
+          errorMessage={this.props.errorMessage}
           vibrationEnabled={this.props.vibrationEnabled}
           delayBetweenAttempts={this.props.delayBetweenAttempts}
         />
