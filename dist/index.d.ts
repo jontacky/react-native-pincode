@@ -1,6 +1,6 @@
-import { PinResultStatus } from "./src/utils";
 import * as React from "react";
-import { StyleProp, ViewStyle, TextStyle } from "react-native";
+import { StyleProp, TextStyle, ViewStyle } from "react-native";
+import { PinResultStatus } from "./src/utils";
 export declare type IProps = {
     bottomLeftComponent?: any;
     buttonComponentLockedPage?: any;
@@ -103,6 +103,7 @@ export declare type IProps = {
     touchIDSentence?: string;
     touchIDTitle?: string;
     validationRegex?: RegExp;
+    errorMessage?: string;
     passcodeFallback?: boolean;
     vibrationEnabled?: boolean;
     delayBetweenAttempts?: number;

@@ -324,7 +324,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
             touchIDSentence={this.props.touchIDSentence || "To unlock your application"}
             touchIDTitle={this.props.touchIDTitle || touchIDTitleDefault}
             vibrationEnabled={this.props.vibrationEnabled}
-            errorMessage={errorMessage}
+            errorMessage={this.props.errorMessage}
             delayBetweenAttempts={this.props.delayBetweenAttempts}
           />}
         {(pinStatus === PinResultStatus.locked ||
