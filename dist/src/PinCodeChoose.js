@@ -13,7 +13,7 @@ class PinCodeChoose extends React.PureComponent {
                 status: isErrorValidation ? PinCode_1.PinStatus.choose : PinCode_1.PinStatus.confirm
             });
             if (!!this.props.currentStatus)
-                this.props.currentStatus(status);
+                this.props.currentStatus(isErrorValidation ? PinCode_1.PinStatus.choose : PinCode_1.PinStatus.confirm);
         };
         this.endProcessConfirm = async (pinCode) => {
             if (pinCode === this.state.pinCode) {

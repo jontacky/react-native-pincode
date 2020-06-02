@@ -92,7 +92,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
       pinCode: isErrorValidation ? '' : pinCode,
       status: isErrorValidation ? PinStatus.choose : PinStatus.confirm
     })
-    if (!!this.props.currentStatus) this.props.currentStatus(status)
+    if (!!this.props.currentStatus) this.props.currentStatus(isErrorValidation ? PinStatus.choose : PinStatus.confirm)
   }
 
   endProcessConfirm = async (pinCode: string) => {
