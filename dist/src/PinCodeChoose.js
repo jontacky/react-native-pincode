@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const PinCode_1 = require("./PinCode");
 const React = require("react");
 const react_native_1 = require("react-native");
 const Keychain = require("react-native-keychain");
+const PinCode_1 = require("./PinCode");
 class PinCodeChoose extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -12,6 +12,8 @@ class PinCodeChoose extends React.PureComponent {
                 pinCode: isErrorValidation ? '' : pinCode,
                 status: isErrorValidation ? PinCode_1.PinStatus.choose : PinCode_1.PinStatus.confirm
             });
+            if (!!this.props.currentStatus)
+                this.props.currentStatus(status);
         };
         this.endProcessConfirm = async (pinCode) => {
             if (pinCode === this.state.pinCode) {

@@ -1,6 +1,6 @@
-import { PinStatus } from './PinCode';
 import * as React from 'react';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { PinStatus } from './PinCode';
 /**
  * Pin Code Choose PIN Page
  */
@@ -14,6 +14,7 @@ export interface IProps {
     colorPasswordError?: string;
     customBackSpaceIcon?: any;
     emptyColumnComponent: any;
+    currentStatus?: (status: string) => void;
     finishProcess?: (pinCode: string) => void;
     getCurrentLength?: (length: number) => void;
     iconButtonDeleteDisabled?: boolean;
