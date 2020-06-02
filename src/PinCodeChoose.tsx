@@ -109,6 +109,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
       if (!!this.props.finishProcess) this.props.finishProcess(pinCode)
     } else {
       this.setState({ status: PinStatus.choose })
+      if (!!this.props.currentStatus) this.props.currentStatus(PinStatus.choose)
     }
   }
 

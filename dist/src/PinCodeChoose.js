@@ -28,6 +28,8 @@ class PinCodeChoose extends React.PureComponent {
             }
             else {
                 this.setState({ status: PinCode_1.PinStatus.choose });
+                if (!!this.props.currentStatus)
+                    this.props.currentStatus(PinCode_1.PinStatus.choose);
             }
         };
         this.cancelConfirm = () => {
