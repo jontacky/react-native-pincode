@@ -1,8 +1,8 @@
-import PinCode, { PinStatus } from './PinCode'
-
 import * as React from 'react'
 import { StyleProp, StyleSheet, TextStyle, View, ViewStyle } from 'react-native'
 import * as Keychain from 'react-native-keychain'
+import PinCode, { PinStatus } from './PinCode'
+
 
 /**
  * Pin Code Choose PIN Page
@@ -18,6 +18,7 @@ export interface IProps {
   colorPasswordError?: string
   customBackSpaceIcon?: any
   emptyColumnComponent: any
+  currentStatus?: (status: string) => void
   finishProcess?: (pinCode: string) => void
   getCurrentLength?: (length: number) => void
   iconButtonDeleteDisabled?: boolean
@@ -91,6 +92,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
       pinCode: isErrorValidation ? '' : pinCode,
       status: isErrorValidation ? PinStatus.choose : PinStatus.confirm
     })
+    if (!!this.props.currentStatus) this.props.currentStatus(status)
   }
 
   endProcessConfirm = async (pinCode: string) => {
